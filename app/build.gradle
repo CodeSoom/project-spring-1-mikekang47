@@ -11,9 +11,16 @@ plugins {
     id 'application'
 
     //Spring
-    id "org.springframework.boot" version "2.4.3"
-    id "io.spring.dependency-management" version "1.0.11.RELEASE"
+    id "org.springframework.boot" version "2.3.5.RELEASE"
+    id "io.spring.dependency-management" version "1.0.10.RELEASE"
 
+}
+
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
 }
 
 repositories {
@@ -30,6 +37,19 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:29.0-jre'
+
+    //Spring Web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    //Jackson for JSON
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.11.3'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.3'
+
+    // AssertJ
+    testImplementation 'org.assertj:assertj-core:3.18.1'
+
+    //Spring Dev tools
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
 }
 
 application {

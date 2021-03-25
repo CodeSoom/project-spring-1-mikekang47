@@ -1,7 +1,7 @@
 # Ignore Gradle project-specific cache directory
 .gradle
 **/build/
-!src/**build/
+!src/**/build/
 caches
 daemon
 native
@@ -11,4 +11,7 @@ app/out/
 # Ignore Gradle build output directory
 build
 
+/.idea
+
+.DS_Store
 
