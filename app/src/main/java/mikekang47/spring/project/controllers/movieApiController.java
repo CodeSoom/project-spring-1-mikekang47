@@ -18,7 +18,6 @@ public class movieApiController {
     /**
      * 전달된 keyword와 관련된 영화를 반환합니다.
      * @param keyword
-     * @return 
      */
     @GetMapping("/api/v1/movies/{keyword}")
     public MoviesData getMovie(@PathVariable String keyword) {
