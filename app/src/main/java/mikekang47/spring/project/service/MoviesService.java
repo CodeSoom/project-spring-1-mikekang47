@@ -3,12 +3,14 @@ package mikekang47.spring.project.service;
 
 import lombok.RequiredArgsConstructor;
 import mikekang47.spring.project.dto.MoviesData;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
 public class MoviesService {
+    @Autowired
     private MovieApiClient movieApiClient;
 
     /**
