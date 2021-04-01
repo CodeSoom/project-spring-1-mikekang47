@@ -3,6 +3,7 @@ package mikekang47.spring.project.controllers;
 import lombok.RequiredArgsConstructor;
 import mikekang47.spring.project.dto.MoviesData;
 import mikekang47.spring.project.service.MoviesService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,7 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RequiredArgsConstructor
 @RestController
-public class movieApiController {
+public class MovieApiController {
+    @Autowired
     private MoviesService movieService;
 
     /**
@@ -23,6 +25,9 @@ public class movieApiController {
     public MoviesData getMovie(@PathVariable String keyword) {
         return movieService.findByKeyword(keyword);
     }
+
+
+
 
 
 }

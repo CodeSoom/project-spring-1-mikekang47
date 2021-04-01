@@ -3,6 +3,7 @@ package mikekang47.spring.project.service;
 import lombok.RequiredArgsConstructor;
 import mikekang47.spring.project.dto.MoviesData;
 import org.mockito.Mock;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
