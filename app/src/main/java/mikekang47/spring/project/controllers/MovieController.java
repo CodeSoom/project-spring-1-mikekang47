@@ -17,7 +17,9 @@ public class MovieController {
     private MovieService movieService;
 
     @GetMapping
-    public List<Movie> getListByTitle(@PathVariable String title) {
-        return movieService.getMoviesByTitle(title);
+    public List<Movie> getListByKeyword(@PathVariable String title) {
+        return movieService.getMoviesByKeyword(title);
     }
+
+
 }
