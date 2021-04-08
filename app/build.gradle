@@ -3,7 +3,7 @@
  *
  * This generated file contains a sample Java application project to get you started.
  * For more details take a look at the 'Building Java & JVM projects' chapter in the Gradle
- * User Manual available at https://docs.gradle.org/6.8.1/userguide/building_java_projects.html
+ * User Manual available at https://docs.gradle.org/6.7/userguide/building_java_projects.html
  */
 
 plugins {
@@ -14,10 +14,11 @@ plugins {
     id 'org.springframework.boot' version '2.3.5.RELEASE'
     id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 
-    // Jacoco
-    id 'jacoco'
-
+    // Asciidoctor
+    id 'org.asciidoctor.convert' version '2.4.0'
 }
+
+sourceCompatibility = '1.8'
 
 configurations {
     developmentOnly
@@ -70,12 +71,20 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     runtimeOnly 'com.h2database:h2'
 
+    // Spring Security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    // Spring REST Docs
+    asciidoctor 'org.springframework.restdocs:spring-restdocs-asciidoctor'
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+
     // Spring Developer Tools
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
     // Spring Boot Test
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+
     }
 
     //mock
@@ -84,10 +93,14 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'mikekang47.spring.project.App'
+    mainClass = 'com.codesoom.assignment.App'
 }
 
 tasks.named('test') {
     // Use junit platform for unit tests.
     useJUnitPlatform()
+}
+
+asciidoctor {
+    dependsOn test
 }

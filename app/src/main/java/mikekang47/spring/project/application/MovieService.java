@@ -1,20 +1,28 @@
 package mikekang47.spring.project.application;
 
+import lombok.RequiredArgsConstructor;
+import mikekang47.spring.project.client.MovieClient;
 import mikekang47.spring.project.domain.MovieRepository;
 import mikekang47.spring.project.models.Movie;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.mockito.Mock;
 
 
-import java.util.Set;
 
-
+@RequiredArgsConstructor
 @Service
 public class MovieService {
+    private MovieClient movieClient;
 
-    private MovieRepository movieRepository;
+    public MovieService(MovieClient movieClient) {
+        this.movieClient = movieClient;
+    }
 
-    public Set<Movie> getMoviesByKeyword(String keyword) {
-        return movieRepository.findByKeyword(keyword);
+    @Transactional(readOnly = true)
+    public Movie getMoviesByKeyword(String keyword) {
+        return movieClient.requestMovie(keyword);
     }
 
 }

@@ -13,14 +13,19 @@ import java.util.Set;
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController
-@RequestMapping(value = "/v1/search/movie?query={keyword}", method = GET)
+@RequestMapping("/v1/search/movie")
 public class MovieController {
     private MovieService movieService;
 
-    @GetMapping
-    public Set<Movie> getListByKeyword(@PathVariable String title) {
-        return movieService.getMoviesByKeyword(title);
+    public MovieController(MovieService movieService) {
+        this.movieService = movieService;
     }
+
+    @GetMapping("{keyword}")
+    public Movie getListByKeyword(@PathVariable String keyword) {
+        return movieService.getMoviesByKeyword(keyword);
+    }
+
 
 
 }
