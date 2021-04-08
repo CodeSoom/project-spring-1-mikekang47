@@ -2,8 +2,9 @@ package mikekang47.spring.project.domain;
 
 import mikekang47.spring.project.models.Movie;
 
-import java.util.List;
+
+import java.util.Set;
 
 public interface MovieRepository {
-    List<Movie> findByKeyword(String keyword);
+    Set<Movie> findByKeyword(String keyword);
 }

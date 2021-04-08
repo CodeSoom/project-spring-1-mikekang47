@@ -4,13 +4,16 @@ import mikekang47.spring.project.domain.MovieRepository;
 import mikekang47.spring.project.models.Movie;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+
+import java.util.Set;
+
+
 @Service
 public class MovieService {
 
     private MovieRepository movieRepository;
 
-    public List<Movie> getMoviesByKeyword(String keyword) {
+    public Set<Movie> getMoviesByKeyword(String keyword) {
         return movieRepository.findByKeyword(keyword);
     }
 
