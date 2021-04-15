@@ -1,5 +1,6 @@
 package mikekang47.spring.project.controllers;
 
+import mikekang47.spring.project.dto.MoviesItem;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -14,8 +15,8 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 @RequestMapping("/api")
 public class MovieController {
-    String CLIENT_ID = "mw9hX3kenx0K2E7pmIQ2";
-    String CLIENT_SECRET = "lNoj6922yq";
+    String CLIENT_ID = "MY_CLIENTID";
+    String CLIENT_SECRET = "MY_CLIENT_SECRET";
 
     private RestTemplate restTemplate = new RestTemplate();
 
